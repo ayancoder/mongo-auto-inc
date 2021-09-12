@@ -5,12 +5,16 @@ UserSchema = mongoose.Schema({
   name: String,
   country: String,
   city: String,
-  inhabitant_number: Number,
+  seq_no: Number,
 });
 
 UserSchema.plugin(AutoIncrement, {
-  id: "inhabitant_seq",
-  inc_field: "inhabitant_number",
+  id: "user_seq",
+  inc_field: "seq_no",
   reference_fields: ["country", "city"],
 });
-module.exports = User = mongoose.model("user", UserSchema);
+
+const User = mongoose.model("user", UserSchema);
+
+module.exports = User;
+

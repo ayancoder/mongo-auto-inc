@@ -3,6 +3,7 @@ const cors = require('cors');
 const connectDB = require('./config/db')
 const itemRoute = require('./route/items');
 const userRoute = require('./route/users');
+const pageRoute = require('./route/pages');
 
 const app = express();
 app.use(cors());
@@ -16,5 +17,6 @@ app.get('/', (req, res)=> {
 })
 app.use('/api/items', itemRoute);
 app.use('/api/users', userRoute);
+app.use('/api/pages', pageRoute);
 
 app.listen(PORT, ()=> { console.log(`node started ${PORT}`)});
